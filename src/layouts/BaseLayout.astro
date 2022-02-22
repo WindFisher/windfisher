@@ -1,5 +1,17 @@
 ---
+import NavBar from "../components/NavBar.vue"
+import Footer from "../components/Footer.vue"
+
 const {title}=Astro.props
+const siteUrl=import.meta.env.PUBLIC_SITE_URL;
+
+const menusResponse = await fetch(`https://windfisher.herokuapp.com/api/menu?populate=*`);
+const menuRes = await menusResponse.json();
+const menus= menuRes.data.attributes.Menu
+
+const footerResponse = await fetch(`https://windfisher.herokuapp.com/api/footer?populate=*`);
+const footerRes = await footerResponse.json();
+const footerItems= footerRes.data.attributes.item
 ---
 
 <style>
@@ -19,14 +31,19 @@ main{
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;600&display=swap" rel="stylesheet">
     
-    <style global>
-			@import "../assets/styles/global.css";
-	</style>
+
+<link rel="stylesheet" href={Astro.resolve("../assets/styles/global.css")} />
+
+<style global>
+
+</style>
 
 </head>
 <body>
 	<main>
+			<NavBar client:load siteUrl={siteUrl} menus={menus} />
         <slot />
+		<Footer footerItems={footerItems} />
 	</main>
 </body>
 </html>
