@@ -20,8 +20,8 @@ onMounted(() => {
 <template>
   <div class="w-full h-14 mb-70 shadow-lg">
     <!-- logo part -->
-    <div class="container mx-auto flex justify-between pt-4">
-      <div class="items-center mt-0">
+    <div class="container mx-auto float-root pt-4">
+      <div class="float-left mt-0">
         <a :href="siteUrl">
           <img
             src="../assets/images/logo-wf-inline-green.svg"
@@ -34,7 +34,7 @@ onMounted(() => {
       </div>
 
       <!-- Horizontal menu -->
-      <div class="flex items-center justify-end mr-0 md:mr-4">
+      <div class="flex items-center float-right mr-0 md:mr-4">
         <div
           class="hidden md:block md:flex md:justify-between md:bg-transparent"
         >
@@ -58,7 +58,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="items-center mr-2 md:ml-0">
+      <div class="float-right items-center mr-2 md:ml-0">
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
           <button
             class="text-customGreenDark"

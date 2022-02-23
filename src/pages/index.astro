@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.vue"
+import TextWithImage from "../components/TextWithImage.vue"
 
 const apiURL = import.meta.env.PUBLIC_API
 const homeReq = await fetch(`${apiURL}/home-page?populate=*`)
@@ -8,9 +9,18 @@ const homeRes = await homeReq.json()
 const home = homeRes.data.attributes
 
 const hero={title:home.heroTitle,subtitle:home.heroSubtitle,useVideo:home.useVideo,heroImage:home.heroImage.data.attributes,heroVideo:home.heroVideo.data.attributes}
+
+const bloc1Content = {title:home.bloc1Title,content:home.bloc1Content,image:home.bloc1Image}
+const bloc2Content = {title:home.bloc2Title,content:home.bloc2Content,image:home.bloc2Image}
 ---
-<BaseLayout title="Ma première page">
+<BaseLayout title="Wind Fisher - Home">
+
 
 <Hero hero={hero}/>
+<TextWithImage class="my-12" content={bloc1Content} direction="left" />
+
+<TextWithImage class="my-12" content={bloc2Content} direction="right" />
+
+<!-- { JSON.stringify(home) } -->
 
 </BaseLayout>

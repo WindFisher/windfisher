@@ -1,3 +1,9 @@
+<script setup>
+const props = defineProps({
+  footerItems: Array,
+});
+</script>
+
 <template>
   <div class="py-12 md:py-24 bg-customBlueDark">
     <div class="container mx-auto text-center md:text-left md:flex">
@@ -25,11 +31,5 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const props = defineProps({
-  footerItems: Array,
-});
-</script>
 
 <style scoped></style>
