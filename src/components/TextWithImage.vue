@@ -34,7 +34,9 @@ const image = imageDatas.data.attributes;
         >
           {{ title }}
         </h2>
-        <div class="content">{{ content }}</div>
+        <div class="content">
+          {{ content }}
+        </div>
       </div>
     </div>
   </div>
