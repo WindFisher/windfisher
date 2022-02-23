@@ -2,7 +2,7 @@
 import NavBar from "../components/NavBar.vue"
 import Footer from "../components/Footer.vue"
 
-const {title}=Astro.props
+const {title,description}=Astro.props
 
 const siteUrl=import.meta.env.PUBLIC_SITE_URL;
 const apiURL = import.meta.env.PUBLIC_API
@@ -27,6 +27,9 @@ main{
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
+
+	<meta name="description" content={description}>
+
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +37,7 @@ main{
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;600&display=swap" rel="stylesheet">
     
 
-<link rel="stylesheet" href={Astro.resolve("../assets/styles/global.css")} />
+	<link rel="stylesheet" href={Astro.resolve("../assets/styles/global.css")} />
 
 <style global>
 

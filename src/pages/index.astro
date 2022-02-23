@@ -4,6 +4,7 @@ import { Markdown } from "astro/components";
 
 import Hero from "../components/Hero.vue"
 import TextWithImage from "../components/TextWithImage.vue"
+import Advantages from "../components/Advantages.vue"
 
 const apiURL = import.meta.env.PUBLIC_API
 const homeReq = await fetch(`${apiURL}/home-page?populate=*`)
@@ -14,9 +15,14 @@ const hero={title:home.heroTitle,subtitle:home.heroSubtitle,useVideo:home.useVid
 
 const bloc1Content = {title:home.bloc1Title,content:home.bloc1Content,image:home.bloc1Image}
 const bloc2Content = {title:home.bloc2Title,content:home.bloc2Content,image:home.bloc2Image}
----
-<BaseLayout title="Wind Fisher - Home">
 
+const advantagesReq = await fetch(`${apiURL}/home-page?populate=valorisationItem.image`)
+const advantagesRes = await advantagesReq.json()
+const advantagesDatas = advantagesRes.data.attributes
+const advantages ={title:advantagesDatas.blocAdvantagesTitle,content:advantagesDatas.blocAdvantagesContent,valorisationItems:advantagesDatas.valorisationItem}
+
+---
+<BaseLayout title="Wind Fisher - Home" meta="Wind Fisher create wind balloon with magnus effect">
 
 <Hero hero={hero}/>
 <Markdown>
@@ -24,9 +30,21 @@ const bloc2Content = {title:home.bloc2Title,content:home.bloc2Content,image:home
 </Markdown>
 
 <Markdown>
+<Advantages advantages={advantages} />
+</Markdown>
+
+<Markdown>
 <TextWithImage class="my-12" content={bloc2Content} direction="right" />
 </Markdown>
 
-<!-- { JSON.stringify(home) } -->
 
+
+<!-- { JSON.stringify(home) } -->
 </BaseLayout>
+
+<style>
+p{
+    margin-top:.5em;
+    margin-bottom:.5em;
+}
+</style>
