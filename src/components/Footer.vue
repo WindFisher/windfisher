@@ -1,7 +1,7 @@
 <template>
-  <div class="py-24 bg-customBlueDark">
-    <div class="container mx-auto flex">
-      <div class="flex-1">
+  <div class="py-12 md:py-24 bg-customBlueDark">
+    <div class="container mx-auto text-center md:text-left md:flex">
+      <div class="flex md:flex-1 justify-center md:justify-end md:mr-8">
         <img
           src="../assets/images/logo-wf-two-lines-white.svg"
           alt="logo wind fisher"
@@ -11,9 +11,7 @@
 
       <div class="flex-1">
         <nav>
-          <ul
-            class="items-center justify-between text-base text-white pt-4 md:pt-0"
-          >
+          <ul class="text-white pt-4 md:ml-8">
             <li class="my-4" v-for="item in footerItems" :key="item.id">
               <a
                 class="no-underline text-customGreenLight hover:text-white"
