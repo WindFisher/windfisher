@@ -12,9 +12,9 @@
       <div class="flex-1">
         <nav>
           <ul class="text-white pt-4 md:ml-8">
-            <li class="my-4" v-for="item in footerItems" :key="item.id">
+            <li class="my-5" v-for="item in footerItems" :key="item.id">
               <a
-                class="no-underline text-customGreenLight hover:text-white"
+                class="no-underline text-white hover:text-white"
                 :href="item.url"
                 >{{ item.title }}</a
               >

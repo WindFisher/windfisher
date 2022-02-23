@@ -1,8 +1,16 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"	
+import BaseLayout from "../layouts/BaseLayout.astro"
+import Hero from "../components/Hero.vue"
+
+const apiURL = import.meta.env.PUBLIC_API
+const homeReq = await fetch(`${apiURL}/home-page?populate=*`)
+const homeRes = await homeReq.json()
+const home = homeRes.data.attributes
+
+const hero={title:home.heroTitle,subtitle:home.heroSubtitle,useVideo:home.useVideo,heroImage:home.heroImage.data.attributes,heroVideo:home.heroVideo.data.attributes}
 ---
 <BaseLayout title="Ma première page">
-<h1 class="text-lg font-semibold">Mon Titre !</h1>
 
-Ma première page !!! 
+<Hero hero={hero}/>
+
 </BaseLayout>

@@ -3,13 +3,15 @@ import NavBar from "../components/NavBar.vue"
 import Footer from "../components/Footer.vue"
 
 const {title}=Astro.props
-const siteUrl=import.meta.env.PUBLIC_SITE_URL;
 
-const menusResponse = await fetch(`https://windfisher.herokuapp.com/api/menu?populate=*`);
+const siteUrl=import.meta.env.PUBLIC_SITE_URL;
+const apiURL = import.meta.env.PUBLIC_API
+
+const menusResponse = await fetch(`${apiURL}/menu?populate=*`);
 const menuRes = await menusResponse.json();
 const menus= menuRes.data.attributes.Menu
 
-const footerResponse = await fetch(`https://windfisher.herokuapp.com/api/footer?populate=*`);
+const footerResponse = await fetch(`${apiURL}/footer?populate=*`);
 const footerRes = await footerResponse.json();
 const footerItems= footerRes.data.attributes.item
 ---
