@@ -21,6 +21,17 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
           </h2>
         </div>
       </div>
+
+      <video
+        v-if="useVideo"
+        autoplay
+        loop
+        muted
+        class="container-block-video object-cover hidden md:block"
+      >
+        <source :src="heroVideo.url" type="video/mp4" />
+      </video>
+
       <picture>
         <source
           media="(min-width:1000px)"
@@ -38,6 +49,7 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
           :src="heroImage.formats.large.url"
           alt="Flowers"
           class="container-block-image object-cover"
+          :class="useVideo ? 'md:hidden' : ''"
         />
       </picture>
     </div>
@@ -57,6 +69,14 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
 }
 
 .container-block-image {
+  z-index: -1;
+  top: 0;
+  position: absolute !important;
+  height: 100%;
+  width: 100%;
+}
+
+.container-block-video {
   z-index: -1;
   top: 0;
   position: absolute !important;
