@@ -47,7 +47,7 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
         />
         <img
           :src="heroImage.formats.large.url"
-          alt="Flowers"
+          :alt="heroImage.alternativeText"
           class="container-block-image object-cover"
           :class="useVideo ? 'md:hidden' : ''"
         />

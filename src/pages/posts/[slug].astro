@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+const apiURL = import.meta.env.PUBLIC_API
+
+export async function getStaticPaths() {
+  const apiURL = import.meta.env.PUBLIC_API
+  const response = await fetch(`${apiURL}/posts`);
+  const results = await response.json();
+
+  return results.data.map(result=>({params:{slug:result.attributes.slug}}))
+}
+
+const {slug}=Astro.request.params
+
+const postReq = await fetch(`${apiURL}/posts?filters[slug]=${slug}`);
+const postResult = await postReq.json()
+
+
+const post = postResult.data[0].attributes
+
+---
+<BaseLayout title="test page" >
+  <div class='container mx-auto my-12'>
+    <div class='mx-2'>
+      <h1 class="text-4xl text-customBlueDark font-semibold">{post.title}</h1> 
+    </div>
+  </div>
+</BaseLayout>

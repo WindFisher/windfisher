@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
-const postsRes = await fetch(`https://windfisher.herokuapp.com/api/posts`);
+const apiURL = import.meta.env.PUBLIC_API
+
+const postsRes = await fetch(`${apiURL}/posts`);
 const posts = await postsRes.json();
 ---
 
