@@ -65,7 +65,7 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
 }
 
 .hero-block {
-  height: 75vh;
+  height: 65vh;
 }
 
 .text-shadow {

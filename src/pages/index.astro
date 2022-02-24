@@ -5,6 +5,7 @@ import { Markdown } from "astro/components";
 import Hero from "../components/Hero.vue"
 import TextWithImage from "../components/TextWithImage.vue"
 import Advantages from "../components/Advantages.vue"
+import Newsletter from "../components/Newsletter.vue"
 
 const apiURL = import.meta.env.PUBLIC_API
 const homeReq = await fetch(`${apiURL}/home-page?populate=*`)
@@ -37,7 +38,7 @@ const advantages ={title:advantagesDatas.blocAdvantagesTitle,content:advantagesD
 <TextWithImage class="my-12" content={bloc2Content} direction="right" />
 </Markdown>
 
-
+<Newsletter client:load />
 
 <!-- { JSON.stringify(home) } -->
 </BaseLayout>
