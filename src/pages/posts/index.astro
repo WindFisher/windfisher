@@ -1,20 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import PostItem from "../../components/PostItem.vue"
 
 const apiURL = import.meta.env.PUBLIC_API
 
-const postsRes = await fetch(`${apiURL}/posts`);
+const postsRes = await fetch(`${apiURL}/posts?populate=*`);
 const posts = await postsRes.json();
 ---
 
 <BaseLayout title="test page" >
-<h1 class='text-lg'>Liste des pages</h1>
-<!-- {JSON.stringify(posts.data)} -->
-<ul>
-{
-  posts.data.map(post=>
-    <li><a href={`/posts/${post.attributes.slug}`}>{post.attributes.title}</a></li>
-  )
-}
-</ul>
+  <div class="container mx-auto">
+    <div class='mx-2'>
+     <h1 class="text-4xl md:text-5xl mb-6 text-customBlueDark font-semibold mt-6"
+      >News</h1>
+      <!-- {JSON.stringify(posts.data)} -->
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {
+        posts.data.map(postItem=>
+          <PostItem itemDatas={postItem} />
+        )
+      }
+      </div>
+    </div>
+  </div>
 </BaseLayout>
