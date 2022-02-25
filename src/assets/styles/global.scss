@@ -46,7 +46,6 @@ cite {
 }
 
 .person {
-  display: flex;
   margin-bottom: 2em;
 
   h2 {
@@ -56,20 +55,23 @@ cite {
     border: 2px solid #292355;
     border-radius: 50%;
   }
+  @media screen and (min-width: 700px) {
+    display: flex;
 
-  .person-image {
-    flex: 1;
-  }
+    .person-image {
+      flex: 1;
+    }
 
-  .person-description {
-    flex: 2;
-    margin-left: 2em;
-  }
-
-  &.person-right {
-    flex-direction: row-reverse;
     .person-description {
-      margin-right: 2em;
+      flex: 2;
+      margin-left: 2em;
+    }
+
+    &.person-right {
+      flex-direction: row-reverse;
+      .person-description {
+        margin-right: 2em;
+      }
     }
   }
 }
