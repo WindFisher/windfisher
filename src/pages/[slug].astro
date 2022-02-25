@@ -1,6 +1,8 @@
 ---
 import { Markdown } from "astro/components";
 
+import PageContent from "../components/PageContent.vue"
+
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 const apiURL = import.meta.env.PUBLIC_API
@@ -20,82 +22,11 @@ const pageResult = await pageReq.json()
 
 
 const page = pageResult.data[0].attributes
-const image = page.image.data.attributes
+const image = page.image.data?.attributes || null
 ---
 <BaseLayout title="test page" >
 
-  <div class='container mx-auto my-12'>
-    <div class='mx-2'>
-
-      <div class="w-full h-128 md:h-256 z-0 relative">
-            <picture>
-              <source
-                media="(min-width:1000px)"
-                srcset={image.formats.large.url}
-              />
-              <source
-                media="(min-width:750px)"
-                srcset={image.formats.medium.url}
-              />
-              <source
-                media="(min-width:500px)"
-                srcset={image.formats.small.url}
-              />
-              <img
-                src={image.formats.large.url}
-                alt={image.alternativeText}
-                class="container-block-image object-cover"
-              />
-            </picture>
-      </div> 
-
-      <div  class="relative bg-white mx-6 md:mx-32 py-8 px-8 -mt-32 z-10 shadow-lg">
-        <h1 class="text-4xl md:text-5xl mb-6 text-customBlueDark font-semibold">{page.title}</h1> 
-
-        <div >{page.description}</div>
-      
-        <Markdown>
-        {page.content}
-        </Markdown>
-      </div>
-    </div>
-  </div>
+  <Markdown>
+   <PageContent image={image} page={page} />
+  </Markdown>
 </BaseLayout>
-
-<style>
-
-
-h2{
-  color:#292355;
-  font-size:2em;
-  font-weight:600;
-  margin-top:1em;
-}
-
-h3{
-  color:#292355;
-  font-size:1.3em;
-  font-weight:600;
-  margin-top:1em;
-}
-
-@media screen and (max-width: 640px) {
-  h2{
-    font-size:1.5em;
-  }
-
-    h2{
-    font-size:1.2em;
-  }
-}
-
-p{
-  margin-bottom:1em;
-}
-
-.container-block-image {
-  width: 100%;
-}
-
-
-</style>

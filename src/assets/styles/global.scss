@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  font-family: "Readex Pro", sans-serif;
+}
+
+blockquote {
+  font-weight: 100;
+  font-size: 1.4rem;
+  max-width: 80%;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 8rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+blockquote:before {
+  content: "“";
+  left: -4rem;
+  top: -2rem;
+}
+
+blockquote:after {
+  content: "”";
+  right: -3rem;
+  bottom: 1.5rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
+}
+
+.person {
+  display: flex;
+  margin-bottom: 2em;
+
+  h2 {
+    margin-top: 0;
+  }
+  img {
+    border: 2px solid #292355;
+    border-radius: 50%;
+  }
+
+  .person-image {
+    flex: 1;
+  }
+
+  .person-description {
+    flex: 2;
+    margin-left: 2em;
+  }
+
+  &.person-right {
+    flex-direction: row-reverse;
+    .person-description {
+      margin-right: 2em;
+    }
+  }
+}
