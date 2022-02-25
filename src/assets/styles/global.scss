@@ -73,3 +73,18 @@ cite {
     }
   }
 }
+
+.slide-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s ease-out;
+}

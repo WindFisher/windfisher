@@ -16,7 +16,7 @@ const isDisabled = computed(() =>
   !emailField.value.includes("@") ||
   !emailField.value.includes(".")
     ? "disabled"
-    : ""
+    : false
 );
 </script>
 

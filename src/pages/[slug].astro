@@ -27,6 +27,6 @@ const image = page.image.data?.attributes || null
 <BaseLayout title="test page" >
 
   <Markdown>
-   <PageContent image={image} page={page} />
+   <PageContent client:load image={image} page={page} />
   </Markdown>
 </BaseLayout>

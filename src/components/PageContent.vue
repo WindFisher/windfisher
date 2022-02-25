@@ -1,14 +1,19 @@
 <script setup>
 import { computed } from "vue";
 
+import ContactForm from "./ContactForm.vue";
+
 const props = defineProps({ page: Object, image: Object });
 const { page, image } = props;
+
+const hasContactForm = computed(() => page.content.includes("<ContactForm />"));
 
 const content = computed(() => {
   if (!page.content) return "";
 
   return page.content
     .replaceAll(".png", ".jpg")
+    .replaceAll("<ContactForm />", "")
     .replaceAll("/image/upload/", "/image/upload/w_800,c_scale/");
 });
 </script>
@@ -50,6 +55,8 @@ const content = computed(() => {
 
           <div v-html="content"></div>
         </article>
+
+        <ContactForm v-if="hasContactForm" />
       </div>
     </div>
   </div>
