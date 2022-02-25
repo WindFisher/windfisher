@@ -22,11 +22,10 @@ const pageResult = await pageReq.json()
 
 
 const page = pageResult.data[0].attributes
-const image = page.image.data?.attributes || null
+const image = page.image?.data?.attributes || null
 ---
-<BaseLayout title="test page" >
-
+<BaseLayout title={page.tite} >
   <Markdown>
-   <PageContent client:load image={image} page={page} />
+   <PageContent client:load image={image} page={page} mode="page" />
   </Markdown>
 </BaseLayout>

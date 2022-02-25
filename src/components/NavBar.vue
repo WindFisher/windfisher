@@ -49,7 +49,7 @@ onMounted(() => {
                 <li v-for="menu in menus" :key="menu.id">
                   <a
                     class="inline-block no-underline uppercase text-customGreenDark hover:text-customBlueDark font-semibold text-lg px-4 lg:ml-2"
-                    :href="menu.url"
+                    :href="siteUrl + '/' + menu.url"
                     >{{ menu.title }}</a
                   >
                 </li>
@@ -125,7 +125,7 @@ onMounted(() => {
             class="font-medium text-lg py-2 px-2 text-center"
             @click="isOpen = false"
           >
-            <a :href="menu.url">{{ menu.title }}</a>
+            <a :href="siteUrl + '/' + menu.url">{{ menu.title }}</a>
           </li>
         </ul>
       </nav>

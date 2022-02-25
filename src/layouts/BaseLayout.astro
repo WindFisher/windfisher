@@ -5,6 +5,7 @@ import Footer from "../components/Footer.vue"
 const {title,meta}=Astro.props
 
 const siteUrl=import.meta.env.PUBLIC_SITE_URL;
+
 const apiURL = import.meta.env.PUBLIC_API
 
 const menusResponse = await fetch(`${apiURL}/menu?populate=*`);

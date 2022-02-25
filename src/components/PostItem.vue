@@ -6,8 +6,17 @@ const { itemDatas } = defineProps({ itemDatas: Object });
 const item = itemDatas.attributes;
 
 const imageURL = item.image.data.attributes.formats?.medium?.url;
+const altText = item.image.data.attributes.alternativeText;
 
 const itemURL = `/posts/${item.slug}`;
+
+const date = new Date(item.date);
+//const itemDate = `${date.getMonth()} ${date.getDay()} ${date.getFullYear()}`;
+const itemDate = date.toLocaleDateString("en-EN", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
 </script>
 
 <template>
@@ -15,7 +24,7 @@ const itemURL = `/posts/${item.slug}`;
     <a :href="itemURL">
       <img
         :src="imageURL || defaultImage"
-        alt="image"
+        :alt="altText"
         class="w-full object-cover h-72"
       />
     </a>
@@ -24,9 +33,7 @@ const itemURL = `/posts/${item.slug}`;
       <h2 class="text-2xl font-semibold text-customBlueDark">
         {{ item.title }}
       </h2>
-      <p class="text-base text-body-color leading-relaxed mb-7">
-        {{ item.description }}
-      </p>
+      <p class="text-customBlueDArk my-3">{{ itemDate }}</p>
       <a
         :href="itemURL"
         class="inline-block py-2 px-7 border border-customBlueDark rounded-full text-base text-customBlueDark font-semibold hover:border-primary hover:bg-customBlueDark hover:text-white transition"

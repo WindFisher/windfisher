@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import PageContent from "../../components/PageContent.vue"
+import { Markdown } from "astro/components";
 
 const apiURL = import.meta.env.PUBLIC_API
 
@@ -13,17 +15,14 @@ export async function getStaticPaths() {
 
 const {slug}=Astro.request.params
 
-const postReq = await fetch(`${apiURL}/posts?filters[slug]=${slug}`);
+const postReq = await fetch(`${apiURL}/posts?filters[slug]=${slug}&populate=*`);
 const postResult = await postReq.json()
 
-
 const post = postResult.data[0].attributes
-
+const image = post.image?.data?.attributes|| null;
 ---
-<BaseLayout title="test page" >
-  <div class='container mx-auto my-12'>
-    <div class='mx-2'>
-      <h1 class="text-4xl text-customBlueDark font-semibold">{post.title}</h1> 
-    </div>
-  </div>
+<BaseLayout title={post.title} >
+  <Markdown>
+   <PageContent client:load image={image} page={post} mode="post" />
+  </Markdown>
 </BaseLayout>
