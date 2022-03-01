@@ -17,11 +17,13 @@ const image = imageDatas.data.attributes;
             :srcset="image.formats.medium.url"
           />
           <source media="(min-width:500px)" :srcset="image.formats.small.url" />
+
           <img
             :src="image.formats.medium.url"
             alt="Flowers"
             class="rounded-lg"
-            width="100%"
+            :height="image.formats.medium.height"
+            :width="image.formats.medium.width"
           />
         </picture>
       </div>

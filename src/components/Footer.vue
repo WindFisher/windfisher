@@ -12,6 +12,7 @@ const props = defineProps({
           src="../assets/images/logo-wf-two-lines-white.svg"
           alt="logo wind fisher"
           width="200"
+          height="200"
         />
       </div>
 

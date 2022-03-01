@@ -39,6 +39,8 @@ const content = computed(() => {
             :src="image.formats.large.url"
             :alt="image.alternativeText"
             class="container-block-image object-cover"
+            :height="image.formats.medium.height"
+            :width="image.formats.medium.width"
           />
         </picture>
       </div>
@@ -59,6 +61,8 @@ const content = computed(() => {
               :src="image.formats.small.url"
               :alt="image.alternativeText"
               class="ml-4 md:float-right md:w-1/3"
+              :height="image.formats.medium.height"
+              :width="image.formats.medium.width"
             />
           </div>
 
