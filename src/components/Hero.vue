@@ -29,7 +29,11 @@ const { title, subtitle, useVideo, heroImage, heroVideo } = props.hero;
         muted
         class="container-block-video object-cover hidden md:block"
       >
-        <source :src="heroVideo.url" type="video/mp4" />
+        <source
+          :src="heroVideo.url"
+          :poster="heroImage.formats.medium.url"
+          type="video/mp4"
+        />
       </video>
 
       <picture>
