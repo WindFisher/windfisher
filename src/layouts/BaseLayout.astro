@@ -2,7 +2,7 @@
 import NavBar from "../components/NavBar.vue"
 import Footer from "../components/Footer.vue"
 
-const {title,meta}=Astro.props
+const {title,metaDescription}=Astro.props
 
 const siteUrl=import.meta.env.PUBLIC_SITE_URL;
 
@@ -27,7 +27,7 @@ const footerItems= footerRes.data.attributes.item
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
 
-	<meta name="description" content={meta}>
+	<meta name="description" content={metaDescription}>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 

@@ -8,7 +8,7 @@ const postsRes = await fetch(`${apiURL}/posts?populate=*`);
 const posts = await postsRes.json();
 ---
 
-<BaseLayout title="All posts" >
+<BaseLayout title="All posts" metaDescription="See all WindFisher's posts">
 
   <div class="container mx-auto">
     <div class='mx-2'>
