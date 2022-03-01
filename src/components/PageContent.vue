@@ -71,7 +71,7 @@ const content = computed(() => {
           <div class="content-page" v-html="content"></div>
         </article>
 
-        <ContactForm v-if="hasContactForm" />
+        <ContactForm client:load v-if="hasContactForm" />
       </div>
     </div>
   </div>

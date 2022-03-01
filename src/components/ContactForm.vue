@@ -89,7 +89,7 @@ const sendMessage = () => {
           type="button"
           :class="
             !isDisabled
-              ? 'bg-customBlueLight text-customBlueDark hover:bg-customBlueDark hover:text-white'
+              ? 'text-white bg-customBlueDark cursor-pointer'
               : 'text-gray-500 bg-gray-300'
           "
           class="mt-2 px-8 py-2 rounded-md text-lg font-semibold"

@@ -11,16 +11,19 @@ const idFiedlName = "mce-EMAIL";
 
 const emailField = ref("");
 
+const isValidEmail = (email) => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+};
+
 const isDisabled = computed(() =>
-  emailField.value.length < 5 ||
-  !emailField.value.includes("@") ||
-  !emailField.value.includes(".")
-    ? "disabled"
-    : false
+  !isValidEmail(emailField.value) ? "disabled" : false
 );
 </script>
 
 <template>
+  {{ isDisabled }}
   <form
     :action="formAction"
     accept-charset="utf-8"
@@ -50,11 +53,11 @@ const isDisabled = computed(() =>
           :disabled="isDisabled"
           id="mc-embedded-subscribe"
           :class="
-            isDisabled
-              ? 'text-gray-500 bg-gray-300'
-              : 'text-gray-700 bg-gray-300 hover:bg-gray-400'
+            !isDisabled
+              ? 'text-white bg-customBlueDark cursor-pointer'
+              : 'text-gray-500 bg-gray-300'
           "
-          class="flex font-bold px-5 py-3 text-black text-bold"
+          class="flex font-bold px-5 py-3 text-bold"
         />
       </div>
     </div>
