@@ -86,9 +86,6 @@ cite {
 .person {
   margin-bottom: 2em;
 
-  h2 {
-    margin-top: 0;
-  }
   img {
     border: 2px solid #292355;
     border-radius: 50%;
@@ -102,7 +99,10 @@ cite {
 
     .person-description {
       flex: 2;
-      margin-left: 2em;
+    }
+
+    :nth-child(1) {
+      margin-right: 1em;
     }
 
     &.person-right {

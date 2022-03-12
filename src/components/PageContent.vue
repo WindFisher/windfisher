@@ -88,7 +88,6 @@ h2 {
   color: #292355;
   font-size: 2em;
   font-weight: 600;
-  margin-top: 1em;
 }
 
 h3 {
