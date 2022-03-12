@@ -30,6 +30,10 @@ module.exports = {
         customBlueLight: "#A1D7E5",
       },
     },
+    fontFamily: {
+      sans: ["Readex Pro", "sans-serif"],
+      serif: ["Readex Pro", "serif"],
+    },
   },
   // more options here
 };
