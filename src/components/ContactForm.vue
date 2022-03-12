@@ -64,7 +64,7 @@ const sendMessage = () => {
     <form v-if="!isSent" name="contact" method="POST" data-netlify="true">
       <p class="mt-5">
         <label class="block"
-          >Votre adresse email :
+          >Email :
           <input
             v-model="email"
             type="email"
@@ -74,7 +74,7 @@ const sendMessage = () => {
       </p>
       <p class="mt-5">
         <label class="block"
-          >Votre message :
+          >Message :
           <textarea
             v-model="message"
             rows="8"

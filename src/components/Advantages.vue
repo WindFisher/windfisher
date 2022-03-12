@@ -30,9 +30,10 @@ const { title, content, valorisationItems } = props.advantages;
               class="h-20 w-20 content-center items-center"
             />
           </div>
-          <div class="text-customBlueDark font-semibold mt-2">
-            {{ item.title }}
-          </div>
+          <div
+            v-html="item.title"
+            class="text-customBlueDark font-semibold mt-2"
+          ></div>
         </div>
       </div>
     </div>

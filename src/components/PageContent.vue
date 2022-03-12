@@ -27,16 +27,22 @@ const content = computed(() => {
       >
         <picture>
           <source
+            v-if="image.formats.large"
             media="(min-width:1000px)"
             :srcset="image.formats.large.url"
           />
           <source
+            v-if="image.formats.medium"
             media="(min-width:750px)"
             :srcset="image.formats.medium.url"
           />
-          <source media="(min-width:500px)" :srcset="image.formats.small.url" />
+          <source
+            v-if="image.formats.small"
+            media="(min-width:500px)"
+            :srcset="image.formats.small.url"
+          />
           <img
-            :src="image.formats.large.url"
+            :src="image.formats.large?.url || image.formats.medium?.url"
             :alt="image.alternativeText"
             class="container-block-image object-cover"
             :height="image.formats.medium.height"
@@ -120,5 +126,13 @@ p {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+ul {
+  margin: 1em;
+}
+
+li {
+  list-style-type: circle;
 }
 </style>
