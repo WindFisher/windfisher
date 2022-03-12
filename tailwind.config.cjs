@@ -29,10 +29,9 @@ module.exports = {
         customBlueDark: "#292355",
         customBlueLight: "#A1D7E5",
       },
-    },
-    fontFamily: {
-      sans: ["Readex Pro", "sans-serif"],
-      serif: ["Readex Pro", "serif"],
+      fontFamily: {
+        readex: ["Readex Pro", "sans-serif"],
+      },
     },
   },
   // more options here
