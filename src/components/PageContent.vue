@@ -53,9 +53,9 @@ const content = computed(() => {
 
       <div
         :class="image && mode === 'page' ? '-mt-8 md:-mt-20 lg:-mt-32' : ''"
-        class="relative bg-white mx-2 md:mx-32 py-8 px-2 md:px-8 z-10 shadow-lg"
+        class="relative bg-white mx-2 md:mx-10 lg:mx-32 py-8 px-2 md:px-8 z-1 shadow-lg"
       >
-        <article>
+        <article class="article-content">
           <h1
             class="text-4xl md:text-5xl mb-6 text-customBlueDark font-semibold"
           >
@@ -83,55 +83,57 @@ const content = computed(() => {
   </div>
 </template>
 
-<style>
-h2 {
-  color: #292355;
-  font-size: 2em;
-  font-weight: 600;
-}
-
-h3 {
-  color: #292355;
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-top: 1em;
-}
-
-@media screen and (max-width: 640px) {
+<style lang="scss">
+article.article-content {
   h2 {
-    font-size: 1.5em;
+    color: #292355;
+    font-size: 2em;
+    font-weight: 600;
   }
 
-  h2 {
-    font-size: 1.2em;
+  h3 {
+    color: #292355;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 1em;
   }
-}
 
-p {
-  margin-bottom: 1em;
-}
+  @media screen and (max-width: 640px) {
+    h2 {
+      font-size: 1.5em;
+    }
 
-.container-block-image {
-  width: 100%;
-}
+    h2 {
+      font-size: 1.2em;
+    }
+  }
 
-.content-page a {
-  text-decoration: underline !important;
-}
+  p {
+    margin-bottom: 1em;
+  }
 
-.content-page img {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .container-block-image {
+    width: 100%;
+  }
 
-ul {
-  margin: 1em;
-}
+  .content-page a {
+    text-decoration: underline !important;
+  }
 
-li {
-  list-style-type: circle;
+  .content-page img {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ul {
+    margin: 1em;
+  }
+
+  li {
+    list-style-type: circle;
+  }
 }
 </style>
