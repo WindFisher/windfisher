@@ -47,57 +47,59 @@ const sendMessage = () => {
 </script>
 
 <template>
-  <transition name="slide">
-    <Alert v-if="isSent" type="success" title="Message sent"
-      >Your message has been successfully sent ! We will answer you
-      shortly</Alert
-    ></transition
-  >
+  <div>
+    <transition name="slide">
+      <Alert v-if="isSent" type="success" title="Message sent"
+        >Your message has been successfully sent ! We will answer you
+        shortly</Alert
+      ></transition
+    >
 
-  <transition name="slide">
-    <Alert v-if="error" type="error" title="Error sending message">{{
-      error
-    }}</Alert>
-  </transition>
+    <transition name="slide">
+      <Alert v-if="error" type="error" title="Error sending message">{{
+        error
+      }}</Alert>
+    </transition>
 
-  <transition name="slide">
-    <form v-if="!isSent" name="contact" method="POST" data-netlify="true">
-      <p class="mt-5">
-        <label class="block"
-          >Email :
-          <input
-            v-model="email"
-            type="email"
-            name="email"
-            :class="`${cssFormLayout}`"
-        /></label>
-      </p>
-      <p class="mt-5">
-        <label class="block"
-          >Message :
-          <textarea
-            v-model="message"
-            rows="8"
-            name="message"
-            :class="`${cssFormLayout}`"
-          ></textarea>
-        </label>
-      </p>
-      <p>
-        <button
-          @click="sendMessage"
-          type="button"
-          :class="
-            !isDisabled
-              ? 'text-white bg-customBlueDark cursor-pointer'
-              : 'text-gray-500 bg-gray-300'
-          "
-          class="mt-2 px-8 py-2 rounded-md text-lg font-semibold"
-          :disabled="isDisabled"
-        >
-          Send
-        </button>
-      </p>
-    </form>
-  </transition>
+    <transition name="slide">
+      <form v-if="!isSent" name="contact" method="POST" data-netlify="true">
+        <p class="mt-5">
+          <label class="block"
+            >Email :
+            <input
+              v-model="email"
+              type="email"
+              name="email"
+              :class="`${cssFormLayout}`"
+          /></label>
+        </p>
+        <p class="mt-5">
+          <label class="block"
+            >Message :
+            <textarea
+              v-model="message"
+              rows="8"
+              name="message"
+              :class="`${cssFormLayout}`"
+            ></textarea>
+          </label>
+        </p>
+        <p>
+          <button
+            @click="sendMessage"
+            type="button"
+            :class="
+              !isDisabled
+                ? 'text-white bg-customBlueDark cursor-pointer'
+                : 'text-gray-500 bg-gray-300'
+            "
+            class="mt-2 px-8 py-2 rounded-md text-lg font-semibold"
+            :disabled="isDisabled"
+          >
+            Send
+          </button>
+        </p>
+      </form>
+    </transition>
+  </div>
 </template>
