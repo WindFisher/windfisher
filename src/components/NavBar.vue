@@ -105,7 +105,7 @@ onMounted(() => {
     </transition>
     <aside
       class="-ml-64 transform text-white top-0 left-0 w-64 bg-emerald-800 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 pt-4"
-      :class="isOpen ? 'translate-x-0 ml-0' : '-translate-x-full -ml-64'"
+      :class="isOpen ? 'translate-x-0 ml-0' : '-translate-x-full'"
     >
       <a :href="siteUrl">
         <img
