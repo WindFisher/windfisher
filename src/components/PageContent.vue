@@ -53,7 +53,7 @@ const content = computed(() => {
 
       <div
         :class="image && mode === 'page' ? '-mt-8 md:-mt-20 lg:-mt-32' : ''"
-        class="relative bg-white mx-6 md:mx-32 py-8 px-8 z-10 shadow-lg"
+        class="relative bg-white mx-2 md:mx-32 py-8 px-2 md:px-8 z-10 shadow-lg"
       >
         <article>
           <h1
