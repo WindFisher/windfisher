@@ -23,7 +23,6 @@ const isDisabled = computed(() =>
 </script>
 
 <template>
-  {{ isDisabled }}
   <form
     :action="formAction"
     accept-charset="utf-8"

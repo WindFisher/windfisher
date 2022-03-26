@@ -16,6 +16,7 @@ const hero={title:home.heroTitle,subtitle:home.heroSubtitle,useVideo:home.useVid
 
 const bloc1Content = {title:home.bloc1Title,content:home.bloc1Content,image:home.bloc1Image}
 const bloc2Content = {title:home.bloc2Title,content:home.bloc2Content,image:home.bloc2Image}
+const blocNewsletter={title:home.blocNewsletterTitle,content:home.blocNewsletterContent}
 
 const advantagesReq = await fetch(`${apiURL}/home-page?populate=valorisationItem.image`)
 const advantagesRes = await advantagesReq.json()
@@ -38,7 +39,7 @@ const advantages ={title:advantagesDatas.blocAdvantagesTitle,content:advantagesD
 <TextWithImage class="my-12" content={bloc2Content} direction="right" />
 </Markdown>
 
-<Newsletter client:load />
+<Newsletter content={blocNewsletter} client:load />
 
 <!-- { JSON.stringify(home) } -->
 </BaseLayout>

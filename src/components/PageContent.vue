@@ -41,19 +41,20 @@ const content = computed(() => {
             media="(min-width:500px)"
             :srcset="image.formats.small.url"
           />
+
           <img
             :src="image.formats.large?.url || image.formats.medium?.url"
             :alt="image.alternativeText"
-            class="container-block-image object-cover"
-            :height="image.formats.medium.height"
-            :width="image.formats.medium.width"
+            class="w-full max-h-96 container-block-image object-cover"
+            :height="image.formats.large.height || image.formats.medium.height"
+            :width="image.formats.large.width || image.formats.medium.width"
           />
         </picture>
       </div>
 
       <div
-        :class="image && mode === 'page' ? '-mt-8 md:-mt-20 lg:-mt-32' : ''"
-        class="relative bg-white mx-2 md:mx-10 lg:mx-32 py-8 px-2 md:px-8 z-1 shadow-lg"
+        :class="image && mode === 'page' ? '-mt-8 md:-mt-20 lg:-mt-24' : ''"
+        class="relative bg-white mx-2 md:mx-10 lg:mx-20 py-8 px-2 md:px-8 z-1 shadow-lg"
       >
         <article class="article-content">
           <h1
@@ -62,19 +63,12 @@ const content = computed(() => {
             {{ page.title }}
           </h1>
 
-          <div v-if="mode === 'post' && image.formats.small">
-            <img
-              :src="image.formats.small.url"
-              :alt="image.alternativeText"
-              class="ml-4 md:float-right md:w-1/3"
-              :height="image.formats.medium.height"
-              :width="image.formats.medium.width"
-            />
-          </div>
-
           <p class="font-semibold">{{ page.description }}</p>
-
-          <div class="content-page" v-html="content"></div>
+          <div
+            class="content-page"
+            :class="mode === 'page' ? 'type-page' : 'type-post'"
+            v-html="content"
+          ></div>
         </article>
 
         <ContactForm client:load v-if="hasContactForm" />
@@ -120,12 +114,41 @@ article.article-content {
     text-decoration: underline !important;
   }
 
-  .content-page img {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  .type-page {
+    img {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    .type-post {
+      img {
+        float: left;
+        margin-right: 1em;
+        clear: both;
+        margin-bottom: 1em;
+        max-width: 40%;
+      }
+      img .right {
+        float: right;
+        clear: right;
+        margin-left: 1em;
+        margin-bottom: 1em;
+        max-width: 40%;
+      }
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .type-post {
+      img {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+    }
   }
 
   ul {

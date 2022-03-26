@@ -55,6 +55,11 @@ blockquote {
   margin-right: auto;
   margin-bottom: 1.5em;
   margin-top: 1em;
+  margin-left: 3em;
+}
+
+blockquote p {
+  display: inline;
 }
 
 blockquote:before,
@@ -68,13 +73,13 @@ blockquote:after {
 
 blockquote:before {
   content: "“";
-  left: -3rem;
+  margin-left: -4rem;
   top: -2rem;
 }
 
 blockquote:after {
   content: "”";
-  right: -3rem;
+  margin-left: 1rem;
   bottom: 1.5rem;
 }
 
@@ -87,8 +92,9 @@ cite {
   margin-bottom: 2em;
 
   img {
-    border: 2px solid #292355;
+    margin: 0 !important;
     border-radius: 50%;
+    border: 2px solid #292355;
   }
   @media screen and (min-width: 700px) {
     display: flex;

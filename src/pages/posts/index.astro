@@ -4,7 +4,7 @@ import PostItem from "../../components/PostItem.vue"
 
 const apiURL = import.meta.env.PUBLIC_API
 
-const postsRes = await fetch(`${apiURL}/posts?populate=*`);
+const postsRes = await fetch(`${apiURL}/posts?sort=date:DESC&populate=*`);
 const posts = await postsRes.json();
 ---
 
@@ -15,7 +15,11 @@ const posts = await postsRes.json();
      <h1 class="text-4xl md:text-5xl mb-6 text-customBlueDark font-semibold mt-6"
       >News</h1>
       <!-- {JSON.stringify(posts.data)} -->
-
+      <div>
+<blockquote style="">
+I am trying to awake the energy contained in the air. - Nikola Tesla
+</blockquote>
+</div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {
         posts.data.map(postItem=>

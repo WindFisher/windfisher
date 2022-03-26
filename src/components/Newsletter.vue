@@ -1,4 +1,7 @@
 <script setup>
+const props = defineProps({ content: Object });
+const { title, content } = props.content;
+
 import NewsletterForm from "./NewsletterForm.vue";
 </script>
 
@@ -10,10 +13,10 @@ import NewsletterForm from "./NewsletterForm.vue";
           <div class="flex md:col-span-7 lg:col-span-8 items-center">
             <div class="">
               <h2 class="text-3xl font-semibold text-customBlueDark">
-                Keep in touch
+                {{ title }}
               </h2>
               <p class="text-lg">
-                Subscribe to our newsletter (arround 1 email per month)
+                {{ content }}
               </p>
             </div>
           </div>

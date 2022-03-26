@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps({
+  siteUrl: String,
   footerItems: Array,
 });
 </script>
@@ -22,7 +23,7 @@ const props = defineProps({
             <li class="my-5" v-for="item in footerItems" :key="item.id">
               <a
                 class="no-underline text-white hover:text-white"
-                :href="item.url"
+                :href="`${siteUrl}/${item.url}`"
                 >{{ item.title }}</a
               >
             </li>
