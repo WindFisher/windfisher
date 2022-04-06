@@ -69,6 +69,7 @@ const content = computed(() => {
             :class="mode === 'page' ? 'type-page' : 'type-post'"
             v-html="content"
           ></div>
+          <div class="clearer"></div>
         </article>
 
         <ContactForm client:load v-if="hasContactForm" />
@@ -90,6 +91,10 @@ article.article-content {
     font-size: 1.3em;
     font-weight: 600;
     margin-top: 1em;
+  }
+
+  .clearer {
+    clear: both;
   }
 
   @media screen and (max-width: 640px) {
@@ -128,7 +133,7 @@ article.article-content {
     .type-post {
       img {
         float: left;
-        margin-right: 1em;
+        margin-right: 1.5em;
         clear: both;
         margin-bottom: 1em;
         max-width: 40%;
@@ -136,7 +141,7 @@ article.article-content {
       img .right {
         float: right;
         clear: right;
-        margin-left: 1em;
+        margin-left: 1.5em;
         margin-bottom: 1em;
         max-width: 40%;
       }

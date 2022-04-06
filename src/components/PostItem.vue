@@ -5,7 +5,7 @@ const { itemDatas } = defineProps({ itemDatas: Object });
 
 const item = itemDatas.attributes;
 
-const imageURL = item.image.data.attributes.formats?.medium?.url;
+const imageURL = item.image.data.attributes.formats?.small?.url;
 const altText = item.image.data.attributes.alternativeText;
 
 const itemURL = `/posts/${item.slug}`;
